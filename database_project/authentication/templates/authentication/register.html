@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{%static 'authentication/base.css' %}"> 
+</head>
+<body>
+    <div class="container">
+        <div class="content-box" id="options-container">
+            <h2 class="text-lg text-center margin-between">Register</h2>
+            <div class= "btn-container">
+                <form class="windowlogscreen-content" method="POST">
+                {% csrf_token %}
+                    <input type="text" placeholder="username" name="username" required>
+                    <input type="text" placeholder="name" name="name" required>
+                    <input type="text" placeholder="surname" name="surname" required>
+                    <input type="password" placeholder="password" name="password" required>
+                    <div class="content-box" id="choose-user-type">
+                        <h3 class="text-md-b text-center">Choose One Of The Below</h3>
+                        <div class="genre-container">
+                            <!--type 2 is for member swimmers every swimmers starts their accout as nonmember swimmer-->
+                            <label><input type="checkbox" name="user-type" value="1">Swimmer</label>
+                            <label><input type="checkbox" name="user-type" value="3">Lifeguard</label>
+                            <label><input type="checkbox" name="user-type" value="4">Coach</label>
+                            <label><input type="checkbox" name="user-type" value="5">Administrator</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-login" type="submit">Register</button>
+                </form>
+                <button class="btn btn-signup">Login</button>
+                <button class="btn btn-change-password">Change Password</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
