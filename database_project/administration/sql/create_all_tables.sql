@@ -44,13 +44,14 @@ CREATE TABLE lifeguard (
 
 CREATE TABLE administrator (
     administrator_id INT PRIMARY KEY,
-    num_reports INT,
+    number_of_reports INT,
     FOREIGN KEY (administrator_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE lane(
     lane_id INT PRIMARY KEY,
     pool_id INT,
+    lane_number INT,
     lifeguard_id INT,
     FOREIGN KEY (pool_id) REFERENCES swimming_pool(pool_id),
     FOREIGN KEY (lifeguard_id) REFERENCES lifeguard(lifeguard_id)
@@ -65,7 +66,6 @@ CREATE TABLE swimmer (
     number_of_booked_slots INT,
     total_courses_enrolled INT,
     total_courses_terminated INT,
-    number_of_current_courses INT,
     FOREIGN KEY (swimmer_id) REFERENCES users(user_id)
 );
 
@@ -101,6 +101,7 @@ CREATE TABLE course(
     course_name VARCHAR(255) NOT NULL,
     course_image BYTEA,
     coach_id INT NOT NULL,
+    course_description TEXT,
     restrictions VARCHAR(255),
     deadline DATE,
     pool_id INT NOT NULL,
@@ -190,8 +191,12 @@ CREATE TABLE comment(
 CREATE TABLE cart(
     cart_id INT PRIMARY KEY,
     purchaser_id INT NOT NULL,
-    course_id INT NOT NULL,
+    course_id INT,
+    cafe_item_id INT,
+    cafe_id INT,
     FOREIGN KEY (purchaser_id) REFERENCES swimmer(swimmer_id),
-    FOREIGN KEY (course_id) REFERENCES course(course_id)
+    FOREIGN KEY (course_id) REFERENCES course(course_id),
+    FOREIGN KEY (cafe_item_id) REFERENCES cafe_item(cafe_item_id),
+    FOREIGN KEY (cafe_id) REFERENCES cafe(cafe_id)
 );
 
