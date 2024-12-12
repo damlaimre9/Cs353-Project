@@ -1,0 +1,19 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Django Migrations cache
+migrations/__pycache__/
+
+
+# IDE settings
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db
+
+# Database or SQL dumps
+*.sql

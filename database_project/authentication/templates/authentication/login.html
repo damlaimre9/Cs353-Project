@@ -26,8 +26,8 @@
                     <input type="password" placeholder="password" name="password" required>
                     <button class="btn btn-login" type="submit">Login</button>
                 </form>
-                <button class="btn btn-signup">Sign Up</button>
-                <button class="btn btn-change-password">Change Password</button>
+                <button class="btn btn-signup"><a href="{% url 'register' %}">Sign Up</a></button>
+                <button class="btn btn-change-password"><a href="{% url 'change_password' %}">Change Password</a></button>
             </div>
         </div>
     </div>
