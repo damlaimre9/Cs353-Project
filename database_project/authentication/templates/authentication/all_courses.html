@@ -1,0 +1,34 @@
+{% extends "authentication/base.html" %}
+{% block title %}All Courses{% endblock %}
+{% block content %}
+<h2>All Courses</h2>
+
+<form method="GET" action="">
+    <input type="text" name="search" placeholder="Search..." value="{{ search_query }}">
+    <select name="filter">
+        <option value="all" {% if filter_option == 'all' %}selected{% endif %}>All Courses</option>
+        <option value="enrolled" {% if filter_option == 'enrolled' %}selected{% endif %}>Enrolled Courses</option>
+        <option value="not_enrolled" {% if filter_option == 'not_enrolled' %}selected{% endif %}>Not Enrolled Courses</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <tr>
+        <th>Course Name</th>
+        <th>Coach ID</th>
+        <th>Details</th>
+        <th>Enroll</th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.1 }}</td>
+        <td>{{ course.2 }}</td>
+        <td><a href="{% url 'course_detail' course.0 %}">details</a></td>
+        <td><a href="{% url 'enroll' course.0 %}">enroll</a></td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">No courses found.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
