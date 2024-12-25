@@ -20,7 +20,7 @@
         <div class="content-box" id="options-container">
             <h2 class="text-lg text-center margin-between">Register</h2>
             <div class= "btn-container">
-                <form class="windowlogscreen-content" method="POST">
+                <form class="form-content" method="POST">
                 {% csrf_token %}
                     <input type="text" placeholder="username" name="username" required>
                     <input type="text" placeholder="name" name="name" required>
@@ -28,17 +28,37 @@
                     <input type="password" placeholder="password" name="password" required>
                     <div class="content-box" id="choose-user-type">
                         <h3 class="text-md-b text-center">Choose One Of The Below</h3>
-                        <div class="genre-container">
+                        <div class="user-type-container">
                             <!--type 2 is for member swimmers every swimmers starts their accout as nonmember swimmer-->
-                            <label><input type="checkbox" name="user-type" value="1">Swimmer</label>
-                            <label><input type="checkbox" name="user-type" value="3">Lifeguard</label>
-                            <label><input type="checkbox" name="user-type" value="4">Coach</label>
-                            <label><input type="checkbox" name="user-type" value="5">Administrator</label>
+                            <div class= "select-user-container">
+                                <div class="radio-btn-label">
+                                    <label for="swimmer">Swimmer</label>
+                                </div>
+                                <input type="radio" name="user-type" value="1">
+                            </div>
+                            <div class= "select-user-container">
+                                <div class="radio-btn-label">
+                                    <label for="lifeguard">Lifeguard</label>
+                                </div>
+                                <input type="radio" name="user-type" value="3">
+                            </div>
+                            <div class= "select-user-container">
+                                <div class="radio-btn-label">
+                                    <label for="coach">Coach</label>
+                                </div>
+                                <input type="radio" name="user-type" value="4">
+                            </div>
+                            <div class= "select-user-container">
+                                <div class="radio-btn-label">
+                                    <label for="admin">Administrator</label>
+                                </div>
+                                <input type="radio" name="user-type" value="5">
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-login" type="submit">Register</button>
+                    <button class="btn btn-signup" type="submit">Register</button>
                 </form>
-                <button class="btn btn-signup"><a href="{% url 'login' %}">Login</a></button>
+                <button class="btn btn-login"><a href="{% url 'login' %}">Login</a></button>
                 <button class="btn btn-change-password"><a href="{% url 'change_password' %}">Change Password</a></button>
             </div>
         </div>

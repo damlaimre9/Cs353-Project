@@ -13,4 +13,6 @@ urlpatterns = [
     path('enroll_course/', EnrollCourseView.as_view(), name='enroll_course'),
     path('my_courses/', MyCoursesView.as_view(), name='my_courses'),
     path('previous_courses/', PreviousCoursesView.as_view(), name='previous_courses'),
+    path('my_courses_coach/', MyCoursesView.as_view(), name='my_courses_coach'),
+    path('previous_courses_coach/', PreviousCoursesView.as_view(), name='previous_courses_coach'),
 ]

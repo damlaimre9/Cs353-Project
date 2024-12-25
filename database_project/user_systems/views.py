@@ -61,5 +61,20 @@ class NonmemberProfileView(View):
 class ScheduleView(View):
     template_name = 'user_systems/schedule.html' 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)   
- 
+        if 'user_id' not in request.session:
+            return render(request, 'authentication/login.html')
+          
+        user_id = request.session['user_id']
+
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT c.course_name, cs.start_date, cs.end_date
+                FROM course_schedule cs
+                JOIN course c ON cs.course_id = c.course_id
+                WHERE cs.swimmer_id = %s
+            """, [user_id])
+            courses = cursor.fetchall()
+
+        # courses: [(course_name, start_date, end_date), ...]
+
+        return render(request, self.template_name, {'courses': courses})

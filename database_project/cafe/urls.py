@@ -5,6 +5,6 @@ from cafe.views import PreviousPurchasesView
 
 urlpatterns = [
     path('cafe_items/', CafeItemsView.as_view(), name='cafe_items'),
-    path('purchase_item/', PurchaseItemView.as_view(), name='purchase_item'),
+    path('cafe_cart/', PurchaseItemView.as_view(), name='cafe_cart'),
     path('previous_purchases/', PreviousPurchasesView.as_view(), name='previous_purchases'),
 ]

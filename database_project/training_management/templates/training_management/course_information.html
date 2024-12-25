@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Course Information</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,18 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-lg text-center margin-between">Course Information</h2>
+        {% block title %}Course Information{% endblock %}
+        {% block content %}
+        <h2>{{ course_name }}</h2>
+        <p>Description: {{ course_description }}</p>
+        <p>Deadline: {{ deadline }}</p>
+        <p>Pool ID: {{ pool_id }}</p>
+        <p>Lane ID: {{ lane_id }}</p>
+        <p>Price: {{ price }}</p>
+        <p>Coach ID: {{ coach_id }}</p>
+
+        <a href="{% url 'all_courses' %}">Back to all courses</a>
+        {% endblock %}
     </div>
 </body>
 </html>

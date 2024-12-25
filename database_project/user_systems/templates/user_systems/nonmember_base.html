@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Pool System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'authentication/base.css' %}">
+</head>
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{% url 'my_courses' %}">My Courses</a></li>
+                <li><a href="{% url 'schedule' %}">Schedule</a></li>
+                <li><a href="{% url 'all_courses' %}">All Courses</a></li>
+                <li><a href="#ratings">Ratings</a></li>
+                <li><a href="#book_pool_lane">Book A Pool Lane</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

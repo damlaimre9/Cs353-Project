@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Schedule Page</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +17,18 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-lg text-center margin-between">Schedule</h2>
-       
+        {% block title %}Schedule{% endblock %}
+        {% block content %}
+        <h2>My Schedule</h2>
+        <!-- You can create a calendar view. For simplicity, just list them: -->
+        <ul>
+            {% for c in courses %}
+                <li>{{ c.0 }}: from {{ c.1 }} to {{ c.2 }}</li>
+            {% empty %}
+                <li>No scheduled courses.</li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
     </div>
 </body>
 </html>

@@ -18,7 +18,17 @@
 <body>
     <div class="container">
         <h2 class="text-lg text-center margin-between">My Courses</h2>
-        
+        {% block title %}My Courses{% endblock %}
+        {% block content %}
+        <h2>My Courses</h2>
+        <ul>
+            {% for course in enrolled_courses %}
+                <li>{{ course.0 }}</li>
+            {% empty %}
+                <li>You are not enrolled in any courses.</li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
     </div>
 </body>
 </html>

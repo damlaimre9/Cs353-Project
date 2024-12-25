@@ -17,17 +17,19 @@
 </head>
 <body>
     <div class="container">
-        <div class="content-box" id="options-container">
+        <div class="content-box">
             <h2 class="text-lg text-center margin-between">Welcome</h2>
             <div class= "btn-container">
-                <form class="windowlogscreen-content" method="POST">
+                <form class="form-content" method="POST">
                 {% csrf_token %}
                     <input type="text" placeholder="username" name="username" required>
                     <input type="password" placeholder="password" name="password" required>
                     <button class="btn btn-login" type="submit">Login</button>
                 </form>
-                <button class="btn btn-signup"><a href="{% url 'register' %}">Sign Up</a></button>
                 <button class="btn btn-change-password"><a href="{% url 'change_password' %}">Change Password</a></button>
+                <div class="register-div"> 
+                    <a href="{% url 'register' %}">Or Register</a>
+                </div>
             </div>
         </div>
     </div>
